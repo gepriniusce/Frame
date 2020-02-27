@@ -1,8 +1,8 @@
 package pr.tongson.demo_view;
 
 import android.graphics.drawable.Animatable;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;

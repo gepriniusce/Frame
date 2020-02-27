@@ -1,7 +1,7 @@
 package pr.tongson.base.ui.dialog;
 
 
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 
 /**
  * <b>Create Date:</b> 2019-04-27<br>

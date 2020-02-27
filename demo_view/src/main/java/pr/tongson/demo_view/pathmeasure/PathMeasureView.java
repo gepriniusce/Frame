@@ -1,17 +1,15 @@
 package pr.tongson.demo_view.pathmeasure;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 
 /**
  * <b>Create Date:</b> 2020-01-02<br>

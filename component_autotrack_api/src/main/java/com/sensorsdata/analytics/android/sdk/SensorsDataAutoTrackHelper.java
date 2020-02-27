@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.Keep;
-import android.support.v7.widget.SwitchCompat;
+import androidx.annotation.Keep;
+import androidx.appcompat.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,8 +56,8 @@ public class SensorsDataAutoTrackHelper {
             Button button = null;
             if (dialog instanceof android.app.AlertDialog) {
                 button = ((android.app.AlertDialog) dialog).getButton(whichButton);
-            } else if (dialog instanceof android.support.v7.app.AlertDialog) {
-                button = ((android.support.v7.app.AlertDialog) dialog).getButton(whichButton);
+            } else if (dialog instanceof androidx.appcompat.app.AlertDialog) {
+                button = ((androidx.appcompat.app.AlertDialog) dialog).getButton(whichButton);
             }
 
             if (button != null) {
@@ -184,8 +184,8 @@ public class SensorsDataAutoTrackHelper {
             ListView listView = null;
             if (dialog instanceof android.app.AlertDialog) {
                 listView = ((android.app.AlertDialog) dialog).getListView();
-            } else if (dialog instanceof android.support.v7.app.AlertDialog) {
-                listView = ((android.support.v7.app.AlertDialog) dialog).getListView();
+            } else if (dialog instanceof androidx.appcompat.app.AlertDialog) {
+                listView = ((androidx.appcompat.app.AlertDialog) dialog).getListView();
             }
 
             if (listView != null) {

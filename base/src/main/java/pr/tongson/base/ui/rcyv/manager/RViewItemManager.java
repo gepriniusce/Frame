@@ -1,6 +1,6 @@
 package pr.tongson.base.ui.rcyv.manager;
 
-import android.support.v4.util.SparseArrayCompat;
+import androidx.collection.SparseArrayCompat;
 
 import pr.tongson.base.ui.rcyv.holder.RViewHolder;
 import pr.tongson.base.ui.rcyv.listener.RViewItem;

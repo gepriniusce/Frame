@@ -16,7 +16,7 @@ import android.view.View;
  * @author tongson
  */
 public class Text extends View {
-    public Text(Context context, @android.support.annotation.Nullable AttributeSet attrs) {
+    public Text(Context context, @androidx.annotation.Nullable AttributeSet attrs) {
         super(context, attrs);
 
     }

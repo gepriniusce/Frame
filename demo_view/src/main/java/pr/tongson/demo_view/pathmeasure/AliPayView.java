@@ -27,7 +27,7 @@ public class AliPayView extends View {
     private PathMeasure mPathMeasure;
     private Float mCurAnimValue;
 
-    public AliPayView(Context context, @android.support.annotation.Nullable AttributeSet attrs) {
+    public AliPayView(Context context, @androidx.annotation.Nullable AttributeSet attrs) {
         super(context, attrs);
         setLayerType(LAYER_TYPE_SOFTWARE, null);
 

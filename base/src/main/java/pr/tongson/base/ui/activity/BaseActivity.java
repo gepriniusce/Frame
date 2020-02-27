@@ -1,7 +1,7 @@
 package pr.tongson.base.ui.activity;
 
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * <b>Create Date:</b> 2019-04-27<br>

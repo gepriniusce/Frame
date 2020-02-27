@@ -1,6 +1,6 @@
 package pr.tongson.module_register.ui.login;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Authentication result : success (user details) or error message.

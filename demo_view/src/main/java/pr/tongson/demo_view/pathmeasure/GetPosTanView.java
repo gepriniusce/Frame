@@ -32,7 +32,7 @@ public class GetPosTanView extends View {
     private PathMeasure mPathMeasure;
 
 
-    public GetPosTanView(Context context, @android.support.annotation.Nullable AttributeSet attrs) {
+    public GetPosTanView(Context context, @androidx.annotation.Nullable AttributeSet attrs) {
         super(context, attrs);
         setLayerType(LAYER_TYPE_SOFTWARE, null);
         mArrawBmp = BitmapFactory.decodeResource(getResources(), R.mipmap.ziwei_arrow_purple);

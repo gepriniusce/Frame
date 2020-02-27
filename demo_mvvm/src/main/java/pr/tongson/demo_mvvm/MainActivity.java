@@ -1,6 +1,6 @@
 package pr.tongson.demo_mvvm;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import pr.tongson.demo_mvvm.ui.main.MainFragment;
