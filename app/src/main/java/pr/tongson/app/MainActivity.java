@@ -1,9 +1,7 @@
 package pr.tongson.app;
 
 import androidx.appcompat.app.AppCompatActivity;
-import pr.tongson.templet_welcome.SplashActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.xiaojinzi.component.anno.RouterAnno;
@@ -18,9 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Intent intent = new Intent(this, SplashActivity.class);
-//        startActivity(intent);
-//        finish();
         Router.
                 with().
                 hostAndPath("templetWelcome/splash").

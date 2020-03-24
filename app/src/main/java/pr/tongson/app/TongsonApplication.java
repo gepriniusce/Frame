@@ -2,6 +2,7 @@ package pr.tongson.app;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
 import com.xiaojinzi.component.Component;
 import com.xiaojinzi.component.Config;
 import com.xiaojinzi.component.impl.application.ModuleManager;
@@ -53,5 +54,11 @@ public class TongsonApplication extends Application {
         }
         long endTime = System.currentTimeMillis();
         LogUtil.log("---------------------------------耗时：" + (endTime - startTime));
+
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
     }
 }

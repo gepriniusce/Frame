@@ -8,6 +8,7 @@ import android.os.Looper;
 import com.xiaojinzi.component.anno.RouterAnno;
 
 import androidx.appcompat.app.AppCompatActivity;
+import pr.tongson.library.utils.L;
 
 @RouterAnno(path = "splash")
 public class SplashActivity extends AppCompatActivity {
@@ -23,9 +24,9 @@ public class SplashActivity extends AppCompatActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(SplashActivity.this, GuideGalleryActivity.class);
+//                startActivity(intent);
+//                finish();
             }
         }, 1000);
 

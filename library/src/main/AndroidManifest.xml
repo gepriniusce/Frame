@@ -7,21 +7,15 @@
 
     <application>
         <receiver
-            android:name=".BroadcastReceiver.MyReceiver"
-            android:enabled="true"
-            android:exported="true" />
-
-        <provider
-            android:name=".ContentProvider.MyContentProvider"
-            android:authorities="TongsonContentProvider"
+            android:name=".broadcastReceiver.MyReceiver"
             android:enabled="true"
             android:exported="true" />
 
         <service
-            android:name=".Service.MyIntentService"
+            android:name=".service.MyIntentService"
             android:exported="false" />
         <service
-            android:name=".Service.MyService"
+            android:name=".service.MyService"
             android:enabled="true"
             android:exported="true" />
     </application>

@@ -11,7 +11,6 @@ def testDependencies = rootProject.ext.testDependencies
 android {
     compileSdkVersion androidId.compileSdkVersion
 
-
     defaultConfig {
         applicationId appId.appId
         minSdkVersion androidId.minSdkVersion
@@ -24,7 +23,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [HOST: "app","RouterDoc":componnet_router_doc_folder]
+                arguments = [HOST: "app", "RouterDoc": componnet_router_doc_folder]
             }
         }
 
@@ -41,10 +40,10 @@ android {
         resConfigs('zh-rCN')
 
         //配置so庫CPU架構（真機：arm,模擬器：x86）
-//        ndk{
-//            abiFilters('armeabi','armeabi-v7a')
-//            abiFilters('x86','x86_64')
-//        }
+        ndk{
+            abiFilters('armeabi','armeabi-v7a')
+            abiFilters('x86','x86_64')
+        }
 
         //
 
@@ -52,7 +51,7 @@ android {
     }
 
     //簽名配置(必須寫在buildTypes之前)
-//    singingConfigs {
+    signingConfigs {
 //        debug {
 //            //默認debug簽名的密碼
 //            storeFile file('/Users/tongson/.android/debug.keystore')
@@ -60,22 +59,18 @@ android {
 //            keyAlias "androiddebugkey"
 //            keyPassword "android"
 //        }
-//
-//        release {
+
+        release {
 //            //簽名證書文件
-//            storeFile file('')
-//            //簽名證書的類型
-//            storeType ""
+//            storeFile TONGSON_FILE
 //            //簽名證書文件的密碼
-//            storePassword ""
+//            storePassword TONGSON_STORE_PASSWORD
 //            //簽名證書中密鑰別名
-//            keyAlias ""
+//            keyAlias TONGSON_KEY_ALIAS
 //            //簽名證書中該密鑰的密碼
-//            keyPassword ""
-//            //是否開啟V2打包
-//            v2SigningEnabled true
-//        }
-//    }
+//            keyPassword TONGSON_KEY_PASSWORD
+        }
+    }
 
 
     buildTypes {
@@ -85,7 +80,9 @@ android {
         }
 
         release {
-            //singingConfig singingConfigs.release
+//            if (TONGSON_FILE.exists()) {
+//                signingConfig signingConfigs.release
+//            }
             buildConfigField("String", "debug", "\"${url.release}\"")
 
             minifyEnabled false
@@ -152,12 +149,16 @@ dependencies {
     androidTestImplementation testDependencies.xjunitext
     androidTestImplementation testDependencies.espresso
 
-    if(isRelease){
+    if (isRelease) {
         implementation project(path: ':templet_welcome')
         implementation project(path: ':templet_usersystem')
     }
 
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+
     implementation componentDependencies.component_impl_rx
     annotationProcessor componentDependencies.component_compiler
+
 
 }

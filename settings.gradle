@@ -1,13 +1,9 @@
-include ':library', ':templet_welcome', ':demo_mvp', ':demo_mvvm', ':demo_view', ':component_autotrack', ':demo_autotrack', ':component_autotrack_api',  ':lib_dialog', ':demo_lib', ':lib_swipeback', ':demo_plugin',
-
+include ':library', ':base', ':app',
+        ':component_autotrack', ':demo_autotrack', ':component_autotrack_api',
+        ':lib_dialog', ':lib_swipeback',
         ':component_http', ':component_lifecycle', ':component_database',
-
-        ':base',
-
         ':module_usersystem', ':module_register', ':module_login',
-
-        ':templet_usersystem',
-
-        ':app',
-
+        ':templet_usersystem', ':templet_welcome',
         ':plugin_usersyetem'
+
+

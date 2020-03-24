@@ -26,17 +26,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     supportDependencies.each {
         k, v -> implementation v
     }
-
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.xjunitext
     androidTestImplementation testDependencies.espresso
-
     api project(path: ':component_http')
-    implementation project(path: ':component_database')
-    implementation project(path: ':component_lifecycle')
-    api 'androidx.recyclerview:recyclerview:1.0.0'
+    api project(path: ':component_database')
+    api project(path: ':component_lifecycle')
+    api project(path: ':component_autotrack_api')
+
 }
