@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         Router.
                 with().
-                hostAndPath("templetWelcome/splash").
+                hostAndPath("moduleWelcome/Splash").
                 afterJumpAction(new Action() {
                     @Override
                     public void run() {

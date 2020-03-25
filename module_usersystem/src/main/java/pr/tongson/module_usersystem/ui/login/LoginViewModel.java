@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
+import pr.tongson.module_usersystem.R;
 import pr.tongson.module_usersystem.data.LoginRepository;
 import pr.tongson.module_usersystem.data.Result;
 import pr.tongson.module_usersystem.data.model.LoggedInUser;
-import pr.tongson.module_usersystem.R;
 
 public class LoginViewModel extends ViewModel {
 

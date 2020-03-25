@@ -1,14 +1,19 @@
 package pr.tongson.module_usersystem.ui.login;
 
 import android.app.Activity;
+
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Build;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import pr.tongson.module_usersystem.R;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -20,8 +25,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import pr.tongson.module_usersystem.R;
+import com.xiaojinzi.component.anno.RouterAnno;
+import com.xiaojinzi.component.impl.Router;
+import com.xiaojinzi.component.support.Action;
 
+@RouterAnno(path = "Login")
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
@@ -69,7 +77,17 @@ public class LoginActivity extends AppCompatActivity {
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
-                finish();
+                //finish();
+                Router.
+                        with().
+                        hostAndPath("moduleWelcome/Splash").
+                        afterJumpAction(new Action() {
+                            @Override
+                            public void run() {
+                                finish();
+                            }
+                        }).
+                        forward();
             }
         });
 

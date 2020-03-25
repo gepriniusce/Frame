@@ -11,7 +11,7 @@ android {
     compileSdkVersion androidId.compileSdkVersion
     defaultConfig {
         if (!isRelease) {
-            applicationId appId.usersystemId
+            applicationId appId.welcomeId
         }
         minSdkVersion androidId.minSdkVersion
         targetSdkVersion androidId.targetSdkVersion
@@ -21,9 +21,10 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [HOST: "moduleUserSystem"]
+                arguments = [HOST: "moduleWelcome"]
             }
         }
+
     }
 
     buildTypes {
@@ -52,7 +53,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api project(path: ':base')
     supportDependencies.each {
         k, v -> implementation v
     }
@@ -61,8 +61,8 @@ dependencies {
     androidTestImplementation testDependencies.xjunitext
     androidTestImplementation testDependencies.espresso
 
-    //implementation project(path: ':base')
-
     implementation componentDependencies.component_impl_rx
     annotationProcessor componentDependencies.component_compiler
+
+    implementation project(path: ':base')
 }

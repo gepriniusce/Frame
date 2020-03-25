@@ -1,9 +1,7 @@
-include ':library', ':base', ':app',
+include ':module_welcome', ':module_usersystem',
         ':component_autotrack', ':demo_autotrack', ':component_autotrack_api',
         ':lib_dialog', ':lib_swipeback',
         ':component_http', ':component_lifecycle', ':component_database',
-        ':module_usersystem', ':module_register', ':module_login',
-        ':templet_usersystem', ':templet_welcome',
-        ':plugin_usersyetem'
+        ':library', ':base', ':app'
 
 
