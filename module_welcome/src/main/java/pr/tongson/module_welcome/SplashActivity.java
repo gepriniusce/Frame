@@ -1,6 +1,5 @@
 package pr.tongson.module_welcome;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -19,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.welcome_activity_splash);
         mHandler = new Handler(Looper.getMainLooper());
         mHandler.postDelayed(new Runnable() {
             @Override
@@ -39,15 +38,24 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startNextActivity() {
-        Router.
-                with().
-                hostAndPath("moduleWelcome/GuideGallery").
-                afterJumpAction(new Action() {
-                    @Override
-                    public void run() {
-                        finish();
-                    }
-                }).
-                forward();
+        try {
+            Router.
+                    with().
+                    hostAndPath("moduleWelcome/GuideGallery").
+                    afterJumpAction(new Action() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    }).
+                    forward();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
     }
 }

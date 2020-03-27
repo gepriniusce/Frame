@@ -9,19 +9,20 @@ import com.xiaojinzi.component.support.Action;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import pr.tongson.module_welcome.ui.main.SectionsPagerAdapter;
+
 @RouterAnno(path = "GuideGallery")
 public class GuideGalleryActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide_gallery);
+        setContentView(R.layout.welcome_activity_guide_gallery);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         final ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             private int scrollCount;
+
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 if (position == viewPager.getAdapter().getCount() - 1) {
@@ -39,7 +40,7 @@ public class GuideGalleryActivity extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-                if (scrollCount > 5) {
+                if (scrollCount > 2) {
                     startNextActivity();
                 }
                 scrollCount = 0;
@@ -54,7 +55,8 @@ public class GuideGalleryActivity extends AppCompatActivity {
     private void startNextActivity() {
         Router.
                 with().
-                hostAndPath("moduleUserSystem/Login").
+                hostAndPath("moduleMain/Main").
+                //hostAndPath("moduleUserSystem/Login").
                 afterJumpAction(new Action() {
                     @Override
                     public void run() {

@@ -20,9 +20,12 @@ android {
 
         testInstrumentationRunner androidId.testInstrumentationRunner
 
+        //资源前缀，防止资源名字冲突 只能限定Xml资源，并不能限定图片资源，图片资源扔需要自身注意设置前缀名。
+        resourcePrefix "app_"
 
         javaCompileOptions {
             annotationProcessorOptions {
+                //打包，生成文档
                 arguments = [HOST: "app", "RouterDoc": componnet_router_doc_folder]
             }
         }
@@ -44,8 +47,6 @@ android {
             abiFilters('armeabi', 'armeabi-v7a')
             abiFilters('x86', 'x86_64')
         }
-
-        //
 
 
     }
@@ -98,6 +99,16 @@ android {
         }
     }
 
+//    afterEvaluate {
+//        tasks.matching {
+//            it.name.startsWith('dex')
+//        }.each { dx ->
+//            if (dx.additionalParameters == null) {
+//                dx.additionalParameters = []
+//            }
+//            dx.additionalParameters += '--multi-dex'
+//        }
+//    }
     //Options
     //https://google.github.io/android-gradle-dsl/current/index.html
 
@@ -160,7 +171,9 @@ dependencies {
     if (isRelease) {
         implementation project(path: ':module_welcome')
         implementation project(path: ':module_usersystem')
+        implementation project(path: ':module_main')
     }
+    implementation project(path: ':base')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
     implementation componentDependencies.component_impl_rx

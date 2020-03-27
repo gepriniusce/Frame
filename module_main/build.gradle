@@ -1,0 +1,78 @@
+if (isRelease) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+def appId = rootProject.ext.appId
+def androidId = rootProject.ext.androidId
+def supportDependencies = rootProject.ext.supportDependencies
+def testDependencies = rootProject.ext.testDependencies
+android {
+    compileSdkVersion androidId.compileSdkVersion
+    defaultConfig {
+        if (!isRelease) {
+            applicationId appId.mainId
+        }
+        minSdkVersion androidId.minSdkVersion
+        targetSdkVersion androidId.targetSdkVersion
+        versionCode androidId.versionCode
+        versionName androidId.versionName
+        testInstrumentationRunner androidId.testInstrumentationRunner
+        resourcePrefix "main_"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //主页面模块
+                arguments = [HOST: "moduleMain"]
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //配置資源路徑，方便測試環境，打包不集成到正式環境
+    sourceSets {
+        main {
+            if (isRelease) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                //集成化模式，整個項目打包apk
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                java {
+                    //release時debug目錄下文件不需要合併到主工程
+                    exclude '**/debug/**'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    supportDependencies.each {
+        k, v -> implementation v
+    }
+
+
+    //MaterialDesign所需要的依赖
+    api 'androidx.vectordrawable:vectordrawable:1.1.0'
+    api 'androidx.navigation:navigation-fragment:2.2.1'
+    api 'androidx.navigation:navigation-ui:2.2.1'
+
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.xjunitext
+    androidTestImplementation testDependencies.espresso
+
+    implementation componentDependencies.component_impl_rx
+    annotationProcessor componentDependencies.component_compiler
+
+    implementation project(path: ':base')
+
+}

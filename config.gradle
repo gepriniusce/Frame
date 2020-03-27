@@ -16,7 +16,8 @@ ext {
     appId = [
             appId       : "pr.tongson.app",
             welcomeId   : "pr.tongson.module_welcome",
-            usersystemId: "pr.tongson.module_usersystem"
+            usersystemId: "pr.tongson.module_usersystem",
+            mainId: "pr.tongson.module_main"
     ]
 
     url = [

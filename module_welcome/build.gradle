@@ -18,9 +18,10 @@ android {
         versionCode androidId.versionCode
         versionName androidId.versionName
         testInstrumentationRunner androidId.testInstrumentationRunner
-
+        resourcePrefix "welcome_"
         javaCompileOptions {
             annotationProcessorOptions {
+                //欢迎页模块
                 arguments = [HOST: "moduleWelcome"]
             }
         }

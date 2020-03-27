@@ -3,5 +3,4 @@ include ':module_welcome', ':module_usersystem',
         ':lib_dialog', ':lib_swipeback',
         ':component_http', ':component_lifecycle', ':component_database',
         ':library', ':base', ':app'
-
-
+include ':module_main'

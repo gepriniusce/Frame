@@ -42,7 +42,7 @@ public class PlaceholderFragment extends LazyLoadFragment {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_guide_gallery);
+        setContentView(R.layout.welcome_fragment_guide_gallery);
         textView = findViewById(R.id.section_label);
     }
 

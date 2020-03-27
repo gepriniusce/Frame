@@ -8,13 +8,18 @@ import com.xiaojinzi.component.anno.RouterAnno;
 import com.xiaojinzi.component.impl.Router;
 import com.xiaojinzi.component.support.Action;
 
-@RouterAnno(path = "first")
+/**
+ * 这个也没啥用，以后可能会去掉
+ * @author tongson
+ */
+@RouterAnno(path = "First")
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.app_activity_main);
+
 
         Router.
                 with().

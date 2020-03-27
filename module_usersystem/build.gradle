@@ -18,9 +18,10 @@ android {
         versionCode androidId.versionCode
         versionName androidId.versionName
         testInstrumentationRunner androidId.testInstrumentationRunner
-
+        resourcePrefix "usersystem_"
         javaCompileOptions {
             annotationProcessorOptions {
+                //用户系统模块
                 arguments = [HOST: "moduleUserSystem"]
             }
         }

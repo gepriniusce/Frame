@@ -5,10 +5,12 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
+
 import pr.tongson.module_usersystem.R;
 import pr.tongson.module_usersystem.data.LoginRepository;
 import pr.tongson.module_usersystem.data.Result;
 import pr.tongson.module_usersystem.data.model.LoggedInUser;
+
 
 public class LoginViewModel extends ViewModel {
 
@@ -36,15 +38,15 @@ public class LoginViewModel extends ViewModel {
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
+            loginResult.setValue(new LoginResult(R.string.usersystem_login_failed));
         }
     }
 
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {
-            loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
+            loginFormState.setValue(new LoginFormState(R.string.usersystem_invalid_username, null));
         } else if (!isPasswordValid(password)) {
-            loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
+            loginFormState.setValue(new LoginFormState(null, R.string.usersystem_invalid_password));
         } else {
             loginFormState.setValue(new LoginFormState(true));
         }
