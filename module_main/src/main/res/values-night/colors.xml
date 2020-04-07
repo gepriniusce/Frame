@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorNightText">#F1EDC6</color>
+    <color name="colorNightBg">#010933</color>
+
+    <color name="colorNightTexta">#ffffff</color>
+    <color name="colorNightBga">#000000</color>
+
+    <color name="colorNightText3">@android:color/holo_green_dark</color>
+    <color name="colorNightBg3">@android:color/holo_orange_light</color>
+</resources>

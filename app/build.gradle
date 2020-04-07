@@ -21,7 +21,7 @@ android {
         testInstrumentationRunner androidId.testInstrumentationRunner
 
         //资源前缀，防止资源名字冲突 只能限定Xml资源，并不能限定图片资源，图片资源扔需要自身注意设置前缀名。
-        resourcePrefix "app_"
+        resourcePrefix "app"
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -99,6 +99,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
 //    afterEvaluate {
 //        tasks.matching {
 //            it.name.startsWith('dex')
@@ -145,14 +150,14 @@ android {
 //    }
 
     //執行gradle lint 命令即可運行lint 檢查，默認生成的報告在outputs/lint-results.html中
-//    lintOptions {
-//        //遇到lint檢查錯誤會終止構建，一般設置為false
-//        abortOnError false
-//        //將警告當作錯誤來處理
-//        warningsAsErrors false
-//        //檢查新API
-//        check 'NewApi'
-//    }
+    lintOptions {
+        //遇到lint檢查錯誤會終止構建，一般設置為false
+        abortOnError false
+        //將警告當作錯誤來處理
+        warningsAsErrors false
+        //檢查新API
+        check 'NewApi'
+    }
 
 
 }

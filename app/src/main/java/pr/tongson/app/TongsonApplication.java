@@ -9,7 +9,8 @@ import com.xiaojinzi.component.support.LogUtil;
 import com.xiaojinzi.component.support.RxErrorIgnoreUtil;
 
 import androidx.multidex.MultiDex;
-import pr.tongson.base.ui.BaseApplication;
+import pr.tongson.BaseApplication;
+import pr.tongson.base.BuildConfig;
 
 /**
  * <b>Create Date:</b> 2020-02-27<br>
@@ -61,10 +62,4 @@ public class TongsonApplication extends BaseApplication {
     }
 
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        //分包=>适配低版本的手机
-        MultiDex.install(base);
-    }
 }

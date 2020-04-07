@@ -18,7 +18,7 @@ android {
         versionCode androidId.versionCode
         versionName androidId.versionName
         testInstrumentationRunner androidId.testInstrumentationRunner
-        resourcePrefix "usersystem_"
+        resourcePrefix "usersystem"
         javaCompileOptions {
             annotationProcessorOptions {
                 //用户系统模块
@@ -39,15 +39,19 @@ android {
         main {
             if (isRelease) {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
-            } else {
-                //集成化模式，整個項目打包apk
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
                 java {
                     //release時debug目錄下文件不需要合併到主工程
                     exclude '**/debug/**'
                 }
+            } else {
+                //集成化模式，整個項目打包apk
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             }
         }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 }
 

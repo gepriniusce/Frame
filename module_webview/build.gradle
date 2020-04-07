@@ -1,0 +1,77 @@
+if (isRelease) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+def appId = rootProject.ext.appId
+def androidId = rootProject.ext.androidId
+def supportDependenciesKotlin = rootProject.ext.supportDependenciesKotlin
+def testDependencies = rootProject.ext.testDependencies
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion androidId.compileSdkVersion
+    defaultConfig {
+        if (!isRelease) {
+            applicationId appId.webviewId
+            //開啟分包
+            multiDexEnabled true
+        }
+        minSdkVersion androidId.minSdkVersion
+        targetSdkVersion androidId.targetSdkVersion
+        versionCode androidId.versionCode
+        versionName androidId.versionName
+        testInstrumentationRunner androidId.testInstrumentationRunner
+        resourcePrefix "webview"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //WebViewH5
+                arguments = [HOST: "moduleWebview"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //配置資源路徑，方便測試環境，打包不集成到正式環境
+    sourceSets {
+        main {
+            if (isRelease) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    //release時debug目錄下文件不需要合併到主工程
+                    exclude '**/debug/**'
+                }
+            } else {
+                //集成化模式，整個項目打包apk
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    supportDependenciesKotlin.each {
+        k, v -> implementation v
+    }
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.xjunitext
+    androidTestImplementation testDependencies.espresso
+
+    implementation componentDependencies.component_impl_rx
+    annotationProcessor componentDependencies.component_compiler
+
+    implementation project(path: ':base')
+}

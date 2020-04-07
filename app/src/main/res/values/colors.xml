@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="colorSkinText">#B1E5DF</color>
+    <color name="colorSkinBg">#010415</color>
 </resources>

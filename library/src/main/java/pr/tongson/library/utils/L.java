@@ -14,6 +14,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
+ * 0⃣🐔偷来的L
+ *
  * @author tongson
  */
 public class L {
@@ -277,8 +279,6 @@ public class L {
     }//==================================WARN==================================
 
 
-
-
     //==================================printStackTrace==================================
     public static void printStackTrace(Throwable t) {
         if (!Debug) {
@@ -287,7 +287,6 @@ public class L {
         log(ERROR, "", "", t);
     }
     //==================================printStackTrace==================================
-
 
 
     /**

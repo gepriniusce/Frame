@@ -4,3 +4,4 @@ include ':module_welcome', ':module_usersystem',
         ':component_http', ':component_lifecycle', ':component_database',
         ':library', ':base', ':app'
 include ':module_main'
+include ':module_webview'

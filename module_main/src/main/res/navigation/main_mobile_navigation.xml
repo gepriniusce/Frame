@@ -22,4 +22,10 @@
         android:name="pr.tongson.module_main.ui.notifications.NotificationsFragment"
         android:label="@string/main_title_notifications"
         tools:layout="@layout/main_fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_"
+        android:name="pr.tongson.module_main.ui.setting.SettingFragment"
+        android:label="@string/main_title_notifications"
+        tools:layout="@layout/main_fragment_setting" />
 </navigation>

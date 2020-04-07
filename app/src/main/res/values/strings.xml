@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">私人App</string>
-
+    <!-- 字体包路径 -->
+    <string name="custom_typeface_string">font/yizhiqingshu.ttf</string>
 </resources>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="main_colorPrimary">#6200EE</color>
-    <color name="main_colorPrimaryDark">#3700B3</color>
-    <color name="main_colorAccent">#03DAC5</color>
+    <color name="colorSkinText">#010415</color>
+    <color name="colorSkinBg">#B1E5DF</color>
+
+    <color name="colorNightText">#010933</color>
+    <color name="colorNightBg">#F1EDC6</color>
+
+    <color name="colorNightTexta">#000000</color>
+    <color name="colorNightBga">#ffffff</color>
+
+    <color name="colorNightText3">@android:color/holo_green_light</color>
+    <color name="colorNightBg3">@android:color/holo_orange_dark</color>
 </resources>

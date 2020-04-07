@@ -7,11 +7,12 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 
 /**
- * <b>Create Date:</b> 2020-03-18<br>
- * <b>Email:</b> 289286298@qq.com<br>
- * <b>Description:</b>  <br>
- *
- * @author tongson
+ * @Email:289286298@qq.com
+ * @Author tongson
+ * @Date 2020/03/18
+ * @Version V1.0.0
+ * @Since
+ * @Description 获取设备屏幕宽高比
  */
 public class UIUtils {
     /**

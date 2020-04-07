@@ -17,7 +17,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author tongson
+ * @Email:289286298@qq.com
+ * @Author Tongson
+ * @Date 2020/03/18
+ * @Version V1.0.0
+ * @Since
+ * @Description Gson
  */
 public class GsonUtils {
     private static final Gson gson;

@@ -13,19 +13,12 @@ import androidx.annotation.RequiresPermission;
 import static android.Manifest.permission.ACCESS_NETWORK_STATE;
 
 /**
- * <b>Create Date:</b> 2020-01-29<br>
- * <b>Email:</b> 289286298@qq.com<br>
- * <b>Description:</b> 网络工具类 <br>
- * <p>
- * <p>
- * 在Android P中，谷歌将ConnectivityManager.getActiveNetworkInfo标记为已过时，所以在9.0时判断当前网络是否连接变更为新的Api:ConnectivityManagergetNetworkCapabilities
- * <p>
- * 作者：小胖熊9527
- * 链接：https://www.jianshu.com/p/83725a3125f2
- * 来源：简书
- * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
- *
- * @author tongson
+ * @Email:289286298@qq.com
+ * @Author Tongson
+ * @Date 2020/03/18
+ * @Version V1.0.0
+ * @Since
+ * @Description 在Android P中，谷歌将ConnectivityManager.getActiveNetworkInfo标记为已过时，所以在9.0时判断当前网络是否连接变更为新的Api:ConnectivityManagergetNetworkCapabilities
  */
 public class NetworkUtils {
 

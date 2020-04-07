@@ -6,6 +6,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import pr.tongson.lib_swipeback.swipebacklayout.BGASwipeBackHelper;
 import pr.tongson.library.R;
 import pr.tongson.library.utils.StatusBarUtil;
@@ -31,6 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BGASwipe
         initView(savedInstanceState);
         setListener();
         processLogic(savedInstanceState);
+
     }
 
     /**
