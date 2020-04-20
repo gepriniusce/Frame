@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import pr.tongson.base.mvc.BaseMVCDialogFragment;
-import pr.tongson.base.utils.ToastUtil;
+import pr.tongson.base.utils.ToastUtils;
 
 /**
  * <b>Create Date:</b> 2020/3/27<br>
@@ -46,7 +46,7 @@ public abstract class BaseMVPDialogFragment<T extends BaseMVPPresenter> extends 
         if (getActivity() == null) {
             return;
         }
-        ToastUtil.showMessage(getActivity(), message);
+        ToastUtils.showMessage(getActivity(), message);
     }
 
     @Override
@@ -54,7 +54,7 @@ public abstract class BaseMVPDialogFragment<T extends BaseMVPPresenter> extends 
         if (getActivity() == null) {
             return;
         }
-        ToastUtil.showSnackMessage(getActivity(), message);
+        ToastUtils.showSnackMessage(getActivity(), message);
     }
 
     @Override
@@ -62,7 +62,7 @@ public abstract class BaseMVPDialogFragment<T extends BaseMVPPresenter> extends 
         if (getActivity() == null || !isAdded()) {
             return;
         }
-        ToastUtil.showSnackMessage(getActivity(), errorMsg);
+        ToastUtils.showSnackMessage(getActivity(), errorMsg);
     }
 
     @Override

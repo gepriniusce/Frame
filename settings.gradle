@@ -1,7 +1,11 @@
-include ':module_welcome', ':module_usersystem',
-        ':component_autotrack', ':demo_autotrack', ':component_autotrack_api',
+include ':component_autotrack', ':demo_autotrack', ':component_autotrack_api',
         ':lib_dialog', ':lib_swipeback',
         ':component_http', ':component_lifecycle', ':component_database',
         ':library', ':base', ':app'
 include ':module_main'
 include ':module_webview'
+include ':module_usersystem'
+include ':module_welcome'
+include ':module_im'
+include ':component_apply'
+include ':module_player'

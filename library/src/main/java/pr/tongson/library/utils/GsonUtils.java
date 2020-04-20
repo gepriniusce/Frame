@@ -83,12 +83,12 @@ public class GsonUtils {
     }
 
     /**
-     * JsonObject string to Json bean.
+     * JsonObject string to Json pr.tongson.module_usersystem.bean.
      *
      * @param json  json string
-     * @param clazz json bean
-     * @param <T>   json bean class
-     * @return json bean or null.
+     * @param clazz json pr.tongson.module_usersystem.bean
+     * @param <T>   json pr.tongson.module_usersystem.bean class
+     * @return json pr.tongson.module_usersystem.bean or null.
      */
     public static <T> T fromJson(String json, Class<T> clazz) {
         try {
@@ -100,7 +100,7 @@ public class GsonUtils {
     }
 
     /**
-     * JsonObject string to Json bean.
+     * JsonObject string to Json pr.tongson.module_usersystem.bean.
      *
      * @param json
      * @param type {@Link Type}
@@ -117,9 +117,9 @@ public class GsonUtils {
     }
 
     /**
-     * Json bean to json string.
+     * Json pr.tongson.module_usersystem.bean to json string.
      *
-     * @param json json bean.
+     * @param json json pr.tongson.module_usersystem.bean.
      * @return json string.
      */
     public static String toJson(Object json) {

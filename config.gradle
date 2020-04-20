@@ -1,6 +1,6 @@
 ext {
     //生產/開發環境（正式/測試）
-    isRelease = false
+    isRelease = true
     componnet_router_doc_folder = "/Users/tongson/AndroidStudioProjects/Guihub/Frame/Doc"
 
     //建立Map存儲，對象名、key都可以自定義，groovy糖果語法，非常靈活
@@ -18,7 +18,9 @@ ext {
             welcomeId   : "pr.tongson.module_welcome",
             usersystemId: "pr.tongson.module_usersystem",
             mainId      : "pr.tongson.module_main",
-            webviewId   : "pr.tongson.module_webview"
+            webviewId   : "pr.tongson.module_webview",
+            plalyerId   : "pr.tongson.module_plalyer",
+            imId        : "pr.tongson.module_im"
     ]
 
     url = [
@@ -31,7 +33,8 @@ ext {
     versions = [
             component_version: "1.8.0",
             androidx         : "1.1.0",
-            kotlin_version   : "1.3.71"
+            kotlin_version   : "1.3.71",
+            lifecycle        : "2.2.0"
     ]
 
     supportDependencies = [
@@ -41,12 +44,14 @@ ext {
             "xannotation"      : "androidx.annotation:annotation:${versions.androidx}",
             "xsupportv4"       : "androidx.legacy:legacy-support-v4:1.0.0",
             "xconstraintlayout": "androidx.constraintlayout:constraintlayout:1.1.3",
-            "xlifecycle"       : "androidx.lifecycle:lifecycle-extensions:2.2.0",
+            "xlifecycle"       : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}",
     ]
 
     supportDependenciesKotlin = [
             "stdlib"           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin_version}",
             "ktx"              : "androidx.core:core-ktx:1.2.0",
+            "xViewmodelKt"     : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+            "coroutines"       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5",
             "anko"             : "org.jetbrains.anko:anko:0.10.8",
             "material"         : "com.google.android.material:material:${versions.androidx}",
             "xappcompat"       : "androidx.appcompat:appcompat:${versions.androidx}",
@@ -54,7 +59,7 @@ ext {
             "xannotation"      : "androidx.annotation:annotation:${versions.androidx}",
             "xsupportv4"       : "androidx.legacy:legacy-support-v4:1.0.0",
             "xconstraintlayout": "androidx.constraintlayout:constraintlayout:1.1.3",
-            "xlifecycle"       : "androidx.lifecycle:lifecycle-extensions:2.2.0",
+            "xlifecycle"       : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
     ]
 
     testDependencies = [

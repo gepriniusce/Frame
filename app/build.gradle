@@ -1,4 +1,5 @@
-apply plugin: 'com.android.application'
+//用plugin 自动帮你apply plugin: 'com.android.library' or apply plugin: 'com.android.application'
+apply plugin: 'pr.tongson.BuildGradle'
 //如果你上一步 optimizeInit(true) 传入的是 true, 那么你必须配置此 Gradle 插件
 apply plugin: 'com.xiaojinzi.component.plugin'
 
@@ -6,7 +7,6 @@ def appId = rootProject.ext.appId
 def androidId = rootProject.ext.androidId
 def supportDependencies = rootProject.ext.supportDependencies
 def testDependencies = rootProject.ext.testDependencies
-
 
 android {
     compileSdkVersion androidId.compileSdkVersion
@@ -55,7 +55,7 @@ android {
     signingConfigs {
         debug {
             //默認debug簽名的密碼
-//            storeFile file('/Users/tongson/.android/debug.keystore')
+//            storeFile file('/Users/tongson/.android/pr.tongson.module_usersystem.debug.keystore')
 //            storePassword "android"
 //            keyAlias "androiddebugkey"
 //            keyPassword "android"
@@ -157,6 +157,9 @@ android {
         warningsAsErrors false
         //檢查新API
         check 'NewApi'
+
+        checkReleaseBuilds false
+        abortOnError false
     }
 
 
@@ -173,11 +176,6 @@ dependencies {
     androidTestImplementation testDependencies.xjunitext
     androidTestImplementation testDependencies.espresso
 
-    if (isRelease) {
-        implementation project(path: ':module_welcome')
-        implementation project(path: ':module_usersystem')
-        implementation project(path: ':module_main')
-    }
     implementation project(path: ':base')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 

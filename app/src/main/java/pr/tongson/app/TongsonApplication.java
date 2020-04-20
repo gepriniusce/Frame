@@ -1,16 +1,12 @@
 package pr.tongson.app;
 
-import android.content.Context;
-
 import com.xiaojinzi.component.Component;
 import com.xiaojinzi.component.Config;
 import com.xiaojinzi.component.impl.application.ModuleManager;
 import com.xiaojinzi.component.support.LogUtil;
 import com.xiaojinzi.component.support.RxErrorIgnoreUtil;
 
-import androidx.multidex.MultiDex;
 import pr.tongson.BaseApplication;
-import pr.tongson.base.BuildConfig;
 
 /**
  * <b>Create Date:</b> 2020-02-27<br>
@@ -46,14 +42,14 @@ public class TongsonApplication extends BaseApplication {
         // 如果你依赖了 rx 版本,需要配置这句代码,否则删除这句
         RxErrorIgnoreUtil.ignoreError();
         // 注册其他业务模块,注册的字符串是上面各个业务模块配置在 build.gradle 中的 HOST
-//        ModuleManager.getInstance().
-//                registerArr("moduleMain", "moduleWelcome", "moduleUserSystem");
+        //        ModuleManager.getInstance().
+        //                registerArr("moduleMain", "moduleWelcome", "moduleUserSystem");
         // 自动加载所有模块, 此功能需要打开开关 optimizeInit(true).
         // 如果你同时也打开了开关 autoRegisterModule(true), 那么这句代码也可省略了, 因为初始化的时候自动帮你注册了
         // ModuleManager.getInstance().autoRegister(); // 1.7.9+
         // 你也可以让框架
         if (BuildConfig.DEBUG) {
-            // 框架还带有检查重复的路由和重复的拦截器等功能,在 `debug` 的时候开启它
+            // 框架还带有检查重复的路由和重复的拦截器等功能,在 `pr.tongson.module_usersystem.debug` 的时候开启它
             ModuleManager.getInstance().check();
         }
         long endTime = System.currentTimeMillis();

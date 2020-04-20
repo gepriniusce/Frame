@@ -64,7 +64,7 @@ public class ACache {
     private static Map<String, ACache> mInstanceMap = new HashMap<String, ACache>();
     private ACacheManager mCache;
     public static final String PATH_DATA = BaseApplication.getApp().getCacheDir().getAbsolutePath() + File.separator + "data";
-    public static final String PATH_CACHE = PATH_DATA + "/NetCache";
+    public static final String PATH_CACHE = PATH_DATA + "/Cache";
 
     public static ACache get(Context ctx) {
         return get(ctx, "Data");

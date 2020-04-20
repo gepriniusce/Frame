@@ -63,8 +63,7 @@ class MyTransform extends Transform {
         println("####################################################################")
         println("########                                                    ########")
         println("########                                                    ########")
-        println("########         欢迎使用 TongsonAutoTrack® 编译插件        ########")
-        println("########          使用过程中碰到任何问题请联系我们          ########")
+        println("########         欢迎使用 TongsonAutoTrack® 编译插件           ########")
         println("########                                                    ########")
         println("########                                                    ########")
         println("####################################################################")
@@ -122,6 +121,8 @@ class MyTransform extends Transform {
         if (!incremental) {
             outputProvider.deleteAll()
         }
+
+        printCopyRight()
 
         /**Transform 的 inputs 有两种类型，一种是目录，一种是 jar 包，要分开遍历 */
         inputs.each { TransformInput input ->

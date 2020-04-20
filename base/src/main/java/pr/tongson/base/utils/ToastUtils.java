@@ -19,7 +19,7 @@ import pr.tongson.base.R;
  *
  * @author tongson
  */
-public class ToastUtil {
+public class ToastUtils {
 
 
     /**

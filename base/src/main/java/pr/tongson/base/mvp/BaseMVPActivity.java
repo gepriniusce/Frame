@@ -2,7 +2,7 @@ package pr.tongson.base.mvp;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import pr.tongson.base.mvc.BaseMVCActivity;
-import pr.tongson.base.utils.ToastUtil;
+import pr.tongson.base.utils.ToastUtils;
 
 /**
  * <b>Create Date:</b> 2020/3/27<br>
@@ -34,17 +34,17 @@ public abstract class BaseMVPActivity<T extends BaseMVPPresenter> extends BaseMV
 
     @Override
     public void showToast(String message) {
-        ToastUtil.showMessage(this, message);
+        ToastUtils.showMessage(this, message);
     }
 
     @Override
     public void showSnackBar(String message) {
-        ToastUtil.showSnackMessage(this, message);
+        ToastUtils.showSnackMessage(this, message);
     }
 
     @Override
     public void showErrorMsg(String errorMsg) {
-        ToastUtil.showSnackMessage(this, errorMsg);
+        ToastUtils.showSnackMessage(this, errorMsg);
     }
 
     @Override
