@@ -13,22 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeBar">
         <activity
-            android:name="pr.tongson.module_main.debug.TestSkinActivity"
+            android:name=".debug.TestSkinActivity"
             android:configChanges="uiMode">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"
             android:configChanges="uiMode"
             android:label="@string/app_name"
             android:screenOrientation="fullSensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <!-- android:configChanges="uiMode" -->
         </activity>
     </application>

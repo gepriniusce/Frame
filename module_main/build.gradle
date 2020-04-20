@@ -1,20 +1,17 @@
-if (isRelease) {
-    apply plugin: 'com.android.library'
-} else {
-    apply plugin: 'com.android.application'
-}
-def appId = rootProject.ext.appId
+apply plugin: 'pr.tongson.BuildGradle'
+
+//def appId = rootProject.ext.appId
 def androidId = rootProject.ext.androidId
 def supportDependencies = rootProject.ext.supportDependencies
 def testDependencies = rootProject.ext.testDependencies
 android {
     compileSdkVersion androidId.compileSdkVersion
     defaultConfig {
-        if (!isRelease) {
-            applicationId appId.mainId
-            //開啟分包
-            multiDexEnabled true
-        }
+//        if (!isRelease) {
+//            applicationId appId.mainId
+//            //開啟分包
+//            multiDexEnabled true
+//        }
         minSdkVersion androidId.minSdkVersion
         targetSdkVersion androidId.targetSdkVersion
         versionCode androidId.versionCode
@@ -27,7 +24,7 @@ android {
                 arguments = [HOST: "moduleMain"]
             }
         }
-
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -37,21 +34,6 @@ android {
         }
     }
 
-    //配置資源路徑，方便測試環境，打包不集成到正式環境
-    sourceSets {
-        main {
-            if (isRelease) {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-                java {
-                    //release時debug目錄下文件不需要合併到主工程
-                    exclude '**/debug/**'
-                }
-            } else {
-                //集成化模式，整個項目打包apk
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            }
-        }
-    }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8

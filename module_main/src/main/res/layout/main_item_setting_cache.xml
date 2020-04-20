@@ -29,9 +29,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/item_extra_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@+id/item_title"
+            app:layout_constraintRight_toLeftOf="@+id/item_cache_value"
+            app:layout_constraintTop_toBottomOf="@+id/item_title" />
+
+        <TextView
             android:id="@+id/item_cache_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

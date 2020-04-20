@@ -12,7 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+
 import pr.tongson.module_usersystem.R;
+import pr.tongson.module_usersystem.bean.Person;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -25,11 +29,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xiaojinzi.component.anno.RouterAnno;
-import com.xiaojinzi.component.impl.Router;
-import com.xiaojinzi.component.support.Action;
+//import com.xiaojinzi.component.anno.RouterAnno;
 
-@RouterAnno(path = "Login")
+//@RouterAnno(path = "Login")
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
@@ -78,16 +80,30 @@ public class LoginActivity extends AppCompatActivity {
 
                 //Complete and destroy login activity once successful
                 //finish();
-                Router.
-                        with().
-                        hostAndPath("moduleWelcome/Splash").
-                        afterJumpAction(new Action() {
-                            @Override
-                            public void run() {
-                                finish();
-                            }
-                        }).
-                        forward();
+//                Router.
+//                        with().
+//                        hostAndPath("moduleWelcome/Splash").
+//                        afterJumpAction(new Action() {
+//                            @Override
+//                            public void run() {
+//                                finish();
+//                            }
+//                        }).
+//                        forward();
+
+                Person p2 = new Person();
+                p2.setUsername("lucky");
+                p2.setPassword("8888888");
+                p2.save(new SaveListener<String>() {
+                    @Override
+                    public void done(String objectId, BmobException e) {
+                        if(e==null){
+                            //L.i("添加数据成功，返回objectId为："+objectId);
+                        }else{
+                            //L.i("创建数据失败：" + e.getMessage());
+                        }
+                    }
+                });
             }
         });
 

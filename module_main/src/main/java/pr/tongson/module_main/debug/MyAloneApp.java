@@ -1,8 +1,5 @@
 package pr.tongson.module_main.debug;
 
-import android.content.Context;
-
-import androidx.multidex.MultiDex;
 import pr.tongson.BaseApplication;
 import pr.tongson.base.skin.core.SkinManager;
 import pr.tongson.library.utils.L;
@@ -26,10 +23,4 @@ public class MyAloneApp extends BaseApplication {
         L.i("SkinManager初始化---------------------------------耗时：" + (endTime - startTime));
     }
 
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        //分包=>适配低版本的手机
-        MultiDex.install(base);
-    }
 }

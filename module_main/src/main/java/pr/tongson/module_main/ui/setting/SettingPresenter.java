@@ -35,8 +35,9 @@ public class SettingPresenter extends BaseMVPPresenterImpl<SettingContract.View>
         skin.setTitleName("夜间模式");
         skin.setModeNight("" + AppCompatDelegate.getDefaultNightMode());
         settingListBean0.setSkinBean(skin);
-        SettingListBean settingListBean1 = new SettingListBean();
-        settingListBean1.setDividerBean(new DividerBean());
+
+        SettingListBean divider = new SettingListBean();
+        divider.setDividerBean(new DividerBean());
 
         SettingListBean settingListBean2 = new SettingListBean();
         CacheBean cache = new CacheBean();
@@ -46,8 +47,9 @@ public class SettingPresenter extends BaseMVPPresenterImpl<SettingContract.View>
         settingListBean2.setCacheBean(cache);
 
         SettingListBeans.add(settingListBean0);
-        SettingListBeans.add(settingListBean1);
+        SettingListBeans.add(divider);
         SettingListBeans.add(settingListBean2);
+
         return SettingListBeans;
     }
 

@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".debug.TestSkinActivity">
+    tools:context=".pr.tongson.module_usersystem.debug.TestSkinActivity">
 
     <ImageView
         android:layout_width="wrap_content"

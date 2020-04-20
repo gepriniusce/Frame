@@ -1,33 +1,54 @@
 package pr.tongson.module_main.ui.home;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import pr.tongson.base.mvp.BaseMVPFragment;
+import pr.tongson.base.recycler.adapter.RViewAdapter;
+import pr.tongson.base.recycler.listener.IOnItemListener;
 import pr.tongson.module_main.R;
 
-public class HomeFragment extends Fragment {
-
-    private HomeViewModel homeViewModel;
+public class HomeFragment extends BaseMVPFragment<HomePresenter> implements HomeContract.View, IOnItemListener<HomeListBean> {
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.main_fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    public void setupPresenter() {
+        mPresenter = new HomePresenter();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.main_fragment_home;
+    }
+
+    private RecyclerView mRecyclerView;
+
+    @Override
+    protected void initView() {
+        mRecyclerView = (RecyclerView) mRootView;
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    protected void setListener() {
+
+    }
+
+    @Override
+    protected void processLogic() {
+        RViewAdapter<HomeListBean> rViewAdapter = new RViewAdapter<HomeListBean>(mPresenter.getItemList(), mPresenter.getItemTypes());
+        rViewAdapter.setItemListener(this);
+        mRecyclerView.setAdapter(rViewAdapter);
+    }
+
+
+    @Override
+    public void onItemClick(View view, HomeListBean entity, int position) {
+
+    }
+
+    @Override
+    public boolean onItemLongClick(View view, HomeListBean entity, int position) {
+        return false;
     }
 }

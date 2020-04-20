@@ -4,14 +4,10 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xiaojinzi.component.anno.RouterAnno;
 
-import java.io.File;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;

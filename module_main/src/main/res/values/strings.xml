@@ -1,8 +1,9 @@
 <resources>
     <string name="main_app_name">Module_Main</string>
     <string name="main_title_home">Home</string>
-    <string name="main_title_dashboard">Dashboard</string>
-    <string name="main_title_notifications">用户</string>
+    <string name="main_title_dashboard">放映厅</string>
+    <string name="main_title_notifications">消息</string>
+    <string name="main_title_user">我的</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
