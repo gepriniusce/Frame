@@ -1,0 +1,54 @@
+apply plugin: 'pr.tongson.BuildGradle'
+
+def androidId = rootProject.ext.androidId
+def supportDependenciesKotlin = rootProject.ext.supportDependenciesKotlin
+def testDependencies = rootProject.ext.testDependencies
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion androidId.compileSdkVersion
+    defaultConfig {
+        minSdkVersion androidId.minSdkVersion
+        targetSdkVersion androidId.targetSdkVersion
+        versionCode androidId.versionCode
+        versionName androidId.versionName
+        testInstrumentationRunner androidId.testInstrumentationRunner
+        resourcePrefix "im"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //modulePlayer
+                arguments = [HOST: "moduleIm"]
+            }
+        }
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    supportDependenciesKotlin.each {
+        k, v -> implementation v
+    }
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.xjunitext
+    androidTestImplementation testDependencies.espresso
+
+    implementation componentDependencies.component_impl_rx
+    annotationProcessor componentDependencies.component_compiler
+
+    implementation project(path: ':base')
+}
