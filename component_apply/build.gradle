@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'groovy'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //gradle sdk    //使用项目中指定的gradle wrapper版本，插件中使用的Project对象等等就来自这里
+    implementation gradleApi()
+    //groovy sdk    //使用本地的groovy
+    implementation localGroovy()
+    //Android编译的大部分gradle源码，比如TaskManager
+    implementation 'com.android.tools.build:gradle:3.6.2'
+    //这个依赖里其实主要存了transform的依赖，注意，这个依赖不同于上面的gradleApi()
+    implementation 'com.android.tools.build:gradle-api:3.6.2'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+// 本地调试
+def groupId = 'pr.tongson'
+version = '1.0.0'
+def artifactId = 'build-gradle-plugin'
+//是否提交到仓库
+def uploadDataGatherSdk = true
+//是否为正式版
+def release = true
+
+// 上传本地maven库
+uploadArchives {
+    version = version + '-SNAPSHOT'
+    repositories {
+        mavenDeployer {
+            snapshotRepository(url: uri('../snapshotRepo'))
+            pom.groupId = groupId
+            pom.artifactId = artifactId
+            pom.version = version
+        }
+    }
+}
