@@ -1,28 +1,20 @@
-package pr.tongson.module_main.debug;
+package pr.tongson.module_main.skin;
 
 import androidx.recyclerview.widget.RecyclerView;
+import pr.tongson.library.fragment.dummy.DummyContent;
+import pr.tongson.module_main.R;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import pr.tongson.module_main.R;
-import pr.tongson.module_main.debug.TestSkinFragment.OnListFragmentInteractionListener;
-import pr.tongson.module_main.debug.dummy.DummyContent.DummyItem;
-
 import java.util.List;
-
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class MyTestSkinRecyclerViewAdapter extends RecyclerView.Adapter<MyTestSkinRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final List<DummyContent.DummyItem> mValues;
+    private final TestSkinFragment.OnListFragmentInteractionListener mListener;
 
-    public MyTestSkinRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyTestSkinRecyclerViewAdapter(List<DummyContent.DummyItem> items, TestSkinFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -61,7 +53,7 @@ public class MyTestSkinRecyclerViewAdapter extends RecyclerView.Adapter<MyTestSk
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public DummyContent.DummyItem mItem;
 
         public ViewHolder(View view) {
             super(view);

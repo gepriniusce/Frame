@@ -61,7 +61,6 @@ public abstract class BaseMVCDialogFragment extends DialogFragment {
      * 例如MVP的presenter的初始化
      */
     protected void onViewCreated() {
-
     }
 
     /**

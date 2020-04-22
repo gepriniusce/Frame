@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xiaojinzi.component.anno.RouterAnno;
+import com.xiaojinzi.component.impl.application.ModuleManager;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
@@ -45,6 +46,10 @@ public class MainActivity extends SkinActivity {
                 requestPermissions(perms, 200);
             }
         }
+
+
+
+        //        LiveDataUtils.getInstance()
 
 //        defaultSkin();
 //        String skinPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "net163.skin";

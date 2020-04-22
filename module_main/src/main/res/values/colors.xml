@@ -11,4 +11,41 @@
 
     <color name="colorNightText3">@android:color/holo_green_light</color>
     <color name="colorNightBg3">@android:color/holo_orange_dark</color>
+
+
+    <!--    colorPrimary          : "应用的主要色调,actionBar默认使用该颜色,Toolbar导航栏的底色",-->
+    <color name="colorPrimary">#00BCD4</color>
+    <!--    colorPrimaryDark      : "应用的主要暗色调,statusBarColor默认使用该颜色",-->
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <!--    statusBarColor        : "状态栏颜色,默认使用colorPrimaryDark",-->
+    <color name="statusBarColor">#03A9F4</color>
+    <!--    windowBackground      : "窗口背景颜色",-->
+    <color name="windowBackground">#ffffff</color>
+    <!--    navigationBarColor    : "底部栏颜色",-->
+    <color name="navigationBarColor">#03A9F4</color>
+    <!--    colorForeground       : "应用的前景色,ListView的分割线,switch滑动区默认使用该颜色",-->
+    <color name="colorForeground">#03A9F4</color>
+    <!--    colorBackground       : "应用的背景色,popMenu的背景默认使用该颜色",-->
+    <color name="colorBackground">#03A9F4</color>
+    <!--    colorAccent           : "CheckBox,RadioButton,SwitchCompat等一般控件的选中效果默认采用该颜色",-->
+    <color name="colorAccent">#03A9F4</color>
+    <!--    colorControlNormal    : "CheckBox,RadioButton,SwitchCompat等默认状态的颜色",-->
+    <color name="colorControlNormal">#00BCD4</color>
+    <!--    colorControlHighlight : "控件按压时的色调",-->
+    <color name="colorControlHighlight">#0394F4</color>
+    <!--    colorControlActivated : "控件选中时的颜色,默认使用colorAccent",-->
+    <color name="colorControlActivated">#0394F4</color>
+    <!--    colorButtonNormal     : "默认按钮的背景颜色",-->
+    <color name="colorButtonNormal">#00BCD4</color>
+    <!--    editTextColor         : "默认EditView输入框字体的颜色",-->
+    <color name="editTextColor">#03A9F4</color>
+    <!--    textColor             : "Button,textView的文字颜色",-->
+    <color name="textColor">#000000</color>
+    <!--    textColorPrimary      : "DisableOnly,RadioButton,checkbox等控件的文字",-->
+    <!--    textColorPrimary      : "应用的主要文字颜色, actionBar的标题文字默认使用该颜色",-->
+    <color name="textColorPrimary">#000000</color>
+    <!--    colorSwitchThumbNormal: "switch thumbs 默认状态的颜色.(switch off)"-->
+    <color name="colorSwitchThumbNormal">#03A9F4</color>
+
+
 </resources>

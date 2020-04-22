@@ -5,6 +5,7 @@ def supportDependenciesKotlin = rootProject.ext.supportDependenciesKotlin
 def testDependencies = rootProject.ext.testDependencies
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion androidId.compileSdkVersion
@@ -48,7 +49,7 @@ dependencies {
     androidTestImplementation testDependencies.espresso
 
     implementation componentDependencies.component_impl_rx
-    annotationProcessor componentDependencies.component_compiler
+    kapt componentDependencies.component_compiler
 
     implementation project(path: ':base')
 }

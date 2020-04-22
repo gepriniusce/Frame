@@ -20,6 +20,8 @@ public interface SettingContract {
         void clearCache();
 
         String getCacheMsg();
+
+        void refreshAdapter();
     }
 
     interface Presenter extends BaseMVPPresenter<View> {
@@ -27,5 +29,7 @@ public interface SettingContract {
         List<SettingListBean> getItemList();
 
         BaseRViewItem[] getItemTypes();
+
+        void changeNightMode();
     }
 }

@@ -32,8 +32,12 @@ public class SettingPresenter extends BaseMVPPresenterImpl<SettingContract.View>
         SettingListBean settingListBean0 = new SettingListBean();
         SkinBean skin = new SkinBean();
         skin.setIconId(R.drawable.main_ic_skin_mode_24dp);
-        skin.setTitleName("夜间模式");
-        skin.setModeNight("" + AppCompatDelegate.getDefaultNightMode());
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+            skin.setTitleName("日间模式");
+        } else {
+            skin.setTitleName("夜间模式");
+        }
+        skin.setModeNight("切换" + AppCompatDelegate.getDefaultNightMode());
         settingListBean0.setSkinBean(skin);
 
         SettingListBean divider = new SettingListBean();
@@ -60,6 +64,20 @@ public class SettingPresenter extends BaseMVPPresenterImpl<SettingContract.View>
         itemTypes[1] = new DividerViewItem();
         itemTypes[2] = new CacheViewItem();
         return itemTypes;
+    }
+
+    static boolean b = false;
+
+    @Override
+    public void changeNightMode() {
+        if (b) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            b = false;
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            b = true;
+        }
+        mView.refreshAdapter();
     }
 
     @Override

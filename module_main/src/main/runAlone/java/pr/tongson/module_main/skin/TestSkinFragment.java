@@ -1,4 +1,4 @@
-package pr.tongson.module_main.debug;
+package pr.tongson.module_main.skin;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,16 +7,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import pr.tongson.library.fragment.dummy.DummyContent;
+import pr.tongson.module_main.R;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import pr.tongson.module_main.R;
-import pr.tongson.module_main.debug.dummy.DummyContent;
-import pr.tongson.module_main.debug.dummy.DummyContent.DummyItem;
-
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -105,6 +101,6 @@ public class TestSkinFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(DummyContent.DummyItem item);
     }
 }

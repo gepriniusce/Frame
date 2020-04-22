@@ -44,7 +44,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //api project(path: ':base')
+    api project(path: ':base')
     supportDependencies.each {
         k, v -> implementation v
     }
@@ -53,8 +53,8 @@ dependencies {
     androidTestImplementation testDependencies.xjunitext
     androidTestImplementation testDependencies.espresso
 
-//    implementation componentDependencies.component_impl_rx
-//    annotationProcessor componentDependencies.component_compiler
+    implementation componentDependencies.component_impl_rx
+    annotationProcessor componentDependencies.component_compiler
 
     implementation 'cn.bmob.android:bmob-sdk:3.7.7'
 

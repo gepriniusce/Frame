@@ -30,6 +30,27 @@ public class HomePresenter extends BaseMVPPresenterImpl<HomeContract.View> imple
     @Override
     public List<HomeListBean> getItemList() {
         List<HomeListBean> homeListBeans = new ArrayList<>();
+
+        HomeListBean colorStyle = new HomeListBean();
+        colorStyle.setModuleName("Style");
+        colorStyle.setHostAndPath("moduleMain/Style");
+        homeListBeans.add(colorStyle);
+
+        HomeListBean skin = new HomeListBean();
+        skin.setModuleName("Skin");
+        skin.setHostAndPath("moduleMain/Skin");
+        homeListBeans.add(skin);
+
+        HomeListBean im = new HomeListBean();
+        im.setModuleName("im");
+        im.setHostAndPath("moduleIm/im");
+        homeListBeans.add(im);
+
+        HomeListBean player = new HomeListBean();
+        player.setModuleName("player");
+        player.setHostAndPath("modulePlayer/Player");
+        homeListBeans.add(player);
+
         for (int i = 0; i < 10; i++) {
             HomeListBean settingListBean0 = new HomeListBean();
             settingListBean0.setModuleName("");

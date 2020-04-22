@@ -1,4 +1,7 @@
 apply plugin: 'pr.tongson.BuildGradle'
+//apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 //def appId = rootProject.ext.appId
 def androidId = rootProject.ext.androidId
@@ -24,6 +27,7 @@ android {
                 arguments = [HOST: "moduleMain"]
             }
         }
+
         multiDexEnabled true
     }
 
@@ -54,8 +58,8 @@ dependencies {
 
     //MaterialDesign所需要的依赖
     api 'androidx.vectordrawable:vectordrawable:1.1.0'
-    api 'androidx.navigation:navigation-fragment:2.2.1'
-    api 'androidx.navigation:navigation-ui:2.2.1'
+    api 'androidx.navigation:navigation-fragment:2.2.2'
+    api 'androidx.navigation:navigation-ui:2.2.2'
 
 
     testImplementation testDependencies.junit

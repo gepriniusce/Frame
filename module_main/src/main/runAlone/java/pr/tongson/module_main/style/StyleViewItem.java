@@ -1,4 +1,4 @@
-package pr.tongson.module_main.ui.home;
+package pr.tongson.module_main.style;
 
 import android.text.TextUtils;
 import android.widget.TextView;
@@ -6,6 +6,7 @@ import android.widget.TextView;
 import pr.tongson.base.recycler.holder.RViewHolder;
 import pr.tongson.base.recycler.item.BaseRViewItem;
 import pr.tongson.module_main.R;
+import pr.tongson.module_main.ui.home.HomeListBean;
 
 /**
  * <b>Create Date:</b> 2020/3/28<br>
@@ -14,7 +15,7 @@ import pr.tongson.module_main.R;
  *
  * @author tongson
  */
-public class HomeViewItem extends BaseRViewItem<HomeListBean> {
+public class StyleViewItem extends BaseRViewItem<HomeListBean> {
 
     private TextView mTvTitle;
 

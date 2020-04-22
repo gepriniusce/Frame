@@ -57,7 +57,6 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
     @NonNull
     @Override
     public RViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        L.i("Tongson onCreateViewHolder");
         BaseRViewItem item = mItemStyles.getRViewItem(viewType);
         RViewHolder holder = RViewHolder.createViewHolder(parent, item);
         if (item.openClick()) {
@@ -100,7 +99,6 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        L.i("Tongson getItemViewType");
         if (hasMultiStyle()) {
             return mItemStyles.getItemViewType(mTList.get(position), position);
         }
@@ -114,4 +112,6 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
     public void setItemListener(IOnItemListener<T> itemListener) {
         mOnItemListener = itemListener;
     }
+
+
 }

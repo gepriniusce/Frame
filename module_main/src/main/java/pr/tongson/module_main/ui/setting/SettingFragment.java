@@ -20,6 +20,7 @@ import pr.tongson.module_main.ui.setting.viewitem.bean.SettingListBean;
  */
 public class SettingFragment extends BaseMVPFragment<SettingPresenter> implements SettingContract.View, IOnItemListener<SettingListBean> {
     private File cacheFile;
+    private RViewAdapter<SettingListBean> rViewAdapter;
 
     public SettingFragment() {
     }
@@ -49,15 +50,16 @@ public class SettingFragment extends BaseMVPFragment<SettingPresenter> implement
 
     @Override
     protected void setListener() {
-
     }
 
     @Override
     protected void processLogic() {
         cacheFile = new File(ACache.PATH_CACHE);
-        RViewAdapter<SettingListBean> rViewAdapter = new RViewAdapter<SettingListBean>(mPresenter.getItemList(), mPresenter.getItemTypes());
+        rViewAdapter = new RViewAdapter<SettingListBean>(mPresenter.getItemList(), mPresenter.getItemTypes());
         rViewAdapter.setItemListener(this);
         mRecyclerView.setAdapter(rViewAdapter);
+
+
     }
 
     @Override
@@ -74,10 +76,7 @@ public class SettingFragment extends BaseMVPFragment<SettingPresenter> implement
 
     @Override
     public void changeNightMode() {
-        if (getActivity() != null) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            getActivity().recreate();
-        }
+        mPresenter.changeNightMode();
     }
 
     @Override
@@ -88,6 +87,14 @@ public class SettingFragment extends BaseMVPFragment<SettingPresenter> implement
     @Override
     public String getCacheMsg() {
         return ACache.getCacheSize(cacheFile);
+    }
+
+    @Override
+    public void refreshAdapter() {
+        if (getActivity() != null) {
+            getActivity().recreate();
+        }
+//        rViewAdapter.notifyDataSetChanged();
     }
 
     @Override

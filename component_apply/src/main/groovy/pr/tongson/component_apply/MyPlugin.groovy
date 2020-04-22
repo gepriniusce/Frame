@@ -36,13 +36,29 @@ class MyPlugin implements Plugin<Project> {
         //获取当前 module name
         currentModuleName = project.path.replace(":", "")
 
-        //List<AssembleTask>
+        println("##########taskNames:" + taskNames.toString())
+        println("##########mainModuleName:" + mainModuleName)
+        println("##########isRunAlone:" + isRunAlone)
+        println("##########currentModuleName:" + currentModuleName)
+
+
+        //得到全部的 assembleTasks
 //        List<AssembleTask> assembleTasks = getTaskInfos(taskNames)
 
         //获取当前module的AssembleTask
 //        AssembleTask assembleTask = fetchCurrentModuleName(project, assembleTasks)
 
-        AssembleTask assembleTask = getTaskInfo(project.gradle.startParameter.taskNames)
+
+//        List<AssembleTask> assembleTasks = getTaskInfos(project)
+//
+//        for (AssembleTask a : assembleTasks) {
+//            println("=====" + a.toString())
+//            if (a.isAssemble) {
+//                currentModuleName = apiModuleName
+//            }
+//        }
+
+        AssembleTask assembleTask = getTaskInfo(taskNames)
         if (assembleTask.isAssemble) {
             fetchMainModuleName(project, assembleTask)
         }
@@ -80,7 +96,8 @@ class MyPlugin implements Plugin<Project> {
             println("current module is " + currentModuleName)
             println("apply plugin is " + 'com.android.application')
             println("============================================")
-            if (assembleTask.isAssemble && currentModuleName == mainModuleName) {
+            if (assembleTask.isAssemble) {
+                // && currentModuleName == mainModuleName
                 compileComponents(assembleTask, project)
 //                project.android.registerTransform(new ComCodeTransform(project))
             }
@@ -131,6 +148,34 @@ class MyPlugin implements Plugin<Project> {
         return assembleTasks
     }
 
+    private List<AssembleTask> getTaskInfos(Project project) {
+        List<AssembleTask> assembleTasks = new ArrayList<>()
+        for (String taskName : taskNames) {
+            AssembleTask assembleTask = new AssembleTask()
+            println("getTaskInfos-taskName:" + taskName)
+            if (taskName.toUpperCase().contains("ASSEMBLE")) {
+                String components
+                if (taskName.toUpperCase().contains("DEBUG")) {
+                    assembleTask.isDebug = true
+                    components = (String) project.properties.get("debugComponent")
+                } else {
+                    components = (String) project.properties.get("compileComponent")
+                }
+
+                if (components == null || components.length() == 0) {
+                    assembleTask.isAssemble = false
+                } else {
+                    assembleTask.isAssemble = true
+                }
+
+                String[] split = taskName.split(":")
+                assembleTask.modules.add(split.length > 1 ? split[split.length - 2] : "all")
+            }
+            assembleTasks.add(assembleTask)
+        }
+        return assembleTasks
+    }
+
     private AssembleTask getTaskInfo(List<String> taskNames) {
         AssembleTask assembleTask = new AssembleTask()
         //[:module_plalyer:assembleDebug, :demo_autotrack:assembleDebug, :app:assembleRelease, :module_im:assembleDebug, :module_welcome:assembleDebug]
@@ -156,9 +201,28 @@ class MyPlugin implements Plugin<Project> {
     }
 
     private class AssembleTask {
+        /**
+         * 是否需要组装
+         */
         boolean isAssemble = false
+        /**
+         * 是否是debug
+         */
         boolean isDebug = false
+        /**
+         * task的
+         */
         List<String> modules = new ArrayList<>()
+
+
+        @Override
+        public String toString() {
+            return "AssembleTask{" +
+                    "isAssemble=" + isAssemble +
+                    ", isDebug=" + isDebug +
+                    ", modules=" + modules.toString() +
+                    '}';
+        }
     }
 
     /**
@@ -221,9 +285,10 @@ class MyPlugin implements Plugin<Project> {
      * @param project
      */
     private void compileComponents(AssembleTask assembleTask, Project project) {
+
         println("添加依赖")
         String components
-        println("assembleTask.isDebug" + assembleTask.isDebug)
+        println("assembleTask.isDebug:" + assembleTask.isDebug)
         if (assembleTask.isDebug) {
             components = (String) project.properties.get("debugComponent")
         } else {

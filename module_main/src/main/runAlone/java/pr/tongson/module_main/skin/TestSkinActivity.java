@@ -1,4 +1,4 @@
-package pr.tongson.module_main.debug;
+package pr.tongson.module_main.skin;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -8,15 +8,18 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.TextView;
 
+import com.xiaojinzi.component.anno.RouterAnno;
+
 import java.io.File;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import pr.tongson.base.skin.SkinActivity;
+import pr.tongson.library.fragment.dummy.DummyContent;
 import pr.tongson.library.utils.L;
 import pr.tongson.module_main.R;
-import pr.tongson.module_main.debug.dummy.DummyContent;
 
-public class TestSkinActivity extends SkinActivity implements View.OnClickListener,TestSkinFragment.OnListFragmentInteractionListener {
+@RouterAnno(path = "Skin")
+public class TestSkinActivity extends SkinActivity implements View.OnClickListener, TestSkinFragment.OnListFragmentInteractionListener {
 
     private boolean b = false;
     private String skinPath;
@@ -59,7 +62,7 @@ public class TestSkinActivity extends SkinActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-       change();
+        change();
     }
 
     private void change() {
@@ -78,4 +81,5 @@ public class TestSkinActivity extends SkinActivity implements View.OnClickListen
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
         change();
     }
+
 }

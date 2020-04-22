@@ -1,4 +1,4 @@
-package pr.tongson.module_main.debug.dummy;
+package pr.tongson.module_main.skin.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
