@@ -23,15 +23,15 @@ import pr.tongson.library.utils.L;
  * @Since
  * @Description 管理应用内所有的MutableLiveDatas
  */
-class LiveDataUtils {
-    private static  LiveDataUtils ourInstance = new LiveDataUtils();
+public class LiveDataUtils {
+    private static LiveDataUtils ourInstance = new LiveDataUtils();
 
     /**
      * 应用内所有的数据持有的集合
      */
     private Map<String, MyMutableLiveData<Object>> mMap;
 
-    static LiveDataUtils getInstance() {
+    public static LiveDataUtils getInstance() {
         return ourInstance;
     }
 

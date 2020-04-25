@@ -7,6 +7,7 @@ import android.widget.TextView;
 import pr.tongson.base.recycler.holder.RViewHolder;
 import pr.tongson.base.recycler.item.BaseRViewItem;
 import pr.tongson.base.recycler.listener.IOnItemChildrenListener;
+import pr.tongson.base.utils.LiveDataUtils;
 import pr.tongson.module_main.R;
 import pr.tongson.module_main.ui.setting.viewitem.bean.SettingListBean;
 
@@ -43,6 +44,8 @@ public class SkinViewItem extends BaseRViewItem<SettingListBean> {
         mItemModeNight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LiveDataUtils.getInstance().post("Skin","dsalfjdska");
+
                 if (mIOnItemChildrenListener != null && openClick()) {
                     mIOnItemChildrenListener.onItemClick();
                 }

@@ -7,14 +7,17 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xiaojinzi.component.anno.RouterAnno;
-import com.xiaojinzi.component.impl.application.ModuleManager;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import pr.tongson.base.skin.SkinActivity;
+import pr.tongson.base.utils.LiveDataUtils;
+import pr.tongson.library.utils.L;
 
 /**
  * 主页面
@@ -48,14 +51,18 @@ public class MainActivity extends SkinActivity {
         }
 
 
+        Observer observer = (Observer<String>) s -> {
+            L.i("s:" + s);
+        };
 
-        //        LiveDataUtils.getInstance()
+        LiveDataUtils.
+                getInstance().
+                with("Skin", String.class).
+                observe(this, observer);
 
-//        defaultSkin();
-//        String skinPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "net163.skin";
-//
-//        dynamicSkin(skinPath);
-
+        //        defaultSkin();
+        //        String skinPath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "net163.skin";
+        //        dynamicSkin(skinPath);
     }
 
     @Override

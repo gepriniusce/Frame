@@ -49,17 +49,20 @@ public class SettingFragment extends BaseMVPFragment<SettingPresenter> implement
     }
 
     @Override
+    protected void onViewCreated() {
+        super.onViewCreated();
+        rViewAdapter = new RViewAdapter<SettingListBean>(mPresenter.getItemList(), mPresenter.getItemTypes());
+        rViewAdapter.setItemListener(this);
+        mRecyclerView.setAdapter(rViewAdapter);
+    }
+
+    @Override
     protected void setListener() {
     }
 
     @Override
     protected void processLogic() {
         cacheFile = new File(ACache.PATH_CACHE);
-        rViewAdapter = new RViewAdapter<SettingListBean>(mPresenter.getItemList(), mPresenter.getItemTypes());
-        rViewAdapter.setItemListener(this);
-        mRecyclerView.setAdapter(rViewAdapter);
-
-
     }
 
     @Override
