@@ -1,4 +1,4 @@
-package pr.tongson.base;
+package pr.tongson.base.lazy;
 
 import android.os.Bundle;
 import androidx.annotation.IdRes;
