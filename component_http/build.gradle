@@ -1,7 +1,8 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 def androidId = rootProject.ext.androidId
-def supportDependencies = rootProject.ext.supportDependencies
+def supportDependenciesKotlin = rootProject.ext.supportDependenciesKotlin
 def testDependencies = rootProject.ext.testDependencies
 android {
     compileSdkVersion androidId.compileSdkVersion
@@ -30,10 +31,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    supportDependencies.each {
+    supportDependenciesKotlin.each {
         k, v -> implementation v
     }
+
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.xjunitext
     androidTestImplementation testDependencies.espresso
