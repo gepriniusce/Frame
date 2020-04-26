@@ -1,5 +1,7 @@
 package pr.tongson.base.mvp;
 
+import java.lang.ref.SoftReference;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -12,12 +14,12 @@ import io.reactivex.disposables.Disposable;
  */
 public class BaseMVPPresenterImpl<T extends BaseMVPView> implements BaseMVPPresenter<T> {
 
-    protected T mView;
+    protected SoftReference<T> mView;
     private CompositeDisposable compositeDisposable;
 
     @Override
     public void attachView(T view) {
-        this.mView = view;
+        this.mView = new SoftReference<>(view);
     }
 
     @Override
@@ -45,33 +47,37 @@ public class BaseMVPPresenterImpl<T extends BaseMVPView> implements BaseMVPPrese
         return false;
     }
 
-//    @Override
-//    public void setLoginStatus(boolean loginStatus) {
-//
-//    }
-//
-//    @Override
-//    public boolean getLoginStatus() {
-//        return false;
-//    }
-//
-//    @Override
-//    public String getLoginAccount() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void setLoginAccount(String account) {
-//
-//    }
-//
-//    @Override
-//    public void setLoginPassword(String password) {
-//
-//    }
+    public T getView() {
+        return mView.get();
+    }
 
-//    @Override
-//    public int getCurrentPage() {
-//        return 0;
-//    }
+    //    @Override
+    //    public void setLoginStatus(boolean loginStatus) {
+    //
+    //    }
+    //
+    //    @Override
+    //    public boolean getLoginStatus() {
+    //        return false;
+    //    }
+    //
+    //    @Override
+    //    public String getLoginAccount() {
+    //        return null;
+    //    }
+    //
+    //    @Override
+    //    public void setLoginAccount(String account) {
+    //
+    //    }
+    //
+    //    @Override
+    //    public void setLoginPassword(String password) {
+    //
+    //    }
+
+    //    @Override
+    //    public int getCurrentPage() {
+    //        return 0;
+    //    }
 }
